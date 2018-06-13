@@ -6,7 +6,6 @@ def area(a):
 area(22/7*r*r)
 
 #Q2
-p=int(input("enter a number"))
 def perfect(p):
     sum=0
     for i in range (1,p):
@@ -16,9 +15,9 @@ def perfect(p):
         return True
     else:
         return False
-    for i in range(1,1001):
-        if(perfect(i)):
-            print(i)
+for i in range(1,1001):
+    if perfect(i):
+        print(i)
 
 #Q3
 def mult12(n):
