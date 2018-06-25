@@ -8,17 +8,17 @@ for i in range(0,n):
 f.close()
 
 #Q2
-a="i"
-f=open("file4.txt","r")
-k=f.read()
-m=k.split()
-print(k.count(a))
+a="best"
+f=open("file1.txt",'r')
+b=f.read()
+c=b.split()
+print(b.count(a))
 
 #Q3
 f=open("file.txt",encoding="utf8")
 f1=open("file2.txt","w")
 for story in f:
-    f1.write(story)
+  f1.write(story)
 f.close()
 
 #Q4
@@ -36,10 +36,25 @@ d.close()
 
 #Q5
 import random
-l=[]
-a=int(input("enter a number"))
-l.append(a)
-print(l)
+list=[]
+sortedlist=[]
+for i in range(0,10):
+    list.append(random.randint(1,10))
+f=open("random.txt","w")
+for s in list:
+    r="".join(str(s))
+    f.write(r)
+f.close()
+f1=open("random.txt","r")
+t=f1.read()
+for u in t:
+    if(u.isdigit()):
+        v="".join(u)
+        sortedlist.append(v)
+sortedlist.sort()
+w=open("sorted.txt","w")
+w.write(str(sortedlist))
+f.close()
 
 
 
