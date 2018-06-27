@@ -1,0 +1,43 @@
+#import sqlite3
+#Q1 #Q2
+#conn=sqlite3.connect('publication.db')
+#print("opened database successfully")
+#conn.execute('''CREATE TABLE NOVELS(BOOK_ID INT PRIMARY KEY NOT NULL,TITLE_ID INT NOT NULL,LOCATION CHAR(50),GENRE TEXT NOT NULL)''')
+#print("create table successfully")
+#conn.execute("INSERT INTO NOVELS(BOOK_ID,TITLE_ID,LOCATION,GENRE)VALUES(13,2,'USA BOOK STORE','HORROR')")
+#conn.execute("INSERT INTO NOVELS(BOOK_ID,TITLE_ID,LOCATION,GENRE)VALUES(14,4,'LONDON BOOK SHOP','LOVE')")
+#conn.execute("INSERT INTO NOVELS(BOOK_ID,TITLE_ID,LOCATION,GENRE)VALUES(15,6,'NEW YORK BOOK CENTRE','ANIMATION')")
+#conn.commit()
+#print("inserted successfully")
+#conn.execute('''CREATE TABLE TITLESS(TITLLE_ID INT PRIMARY KEY NOT NULL,TITLLE TXT NOT NULL,ISBN INT NOT NULL,PUBLISHER_ID INT NOT NULL,PUBLISHER_YEAR INT NOT NULL)''')
+#print("create table successfully")
+#conn.execute('''CREATE TABLE PUBLISHERS(PUBLISHER_ID INT PRIMARY KEY NOT NULL,NAME TXT NOT NULL,STREET_ADDRESS CHAR(50),SUITE_NUMBER INT NOT NULL,ZIP_CODE_ID INT NOT NULL)''')
+#print("create table successfully")
+#conn.execute('''CREATE TABLE ZIP_CODE(ZIP_CODE_ID INT PRIMARY KEY NOT NULL,CITY TXT NOT NULL,STATE TXT NOT NULL,ZIP_CODE INT NOT NULL)''')
+#print("create table successfully")
+#conn.execute('''CREATE TABLE AUTHORS_TITLES(AUTHOR_TITLE_ID INT PRIMARY KEY NOT NULL,AUTHOR_ID INT NOT NULL,TITLE_ID INT NOT NULL)''')
+#print("create table successfully")
+#conn.execute('''CREATE TABLE AUTHORS(AUTHOR_ID PRIMARY KEY NOT NULL,FIRST_NAME TXT NOT NULL,MIDDLE_NAME TXT NOT NULL,LAST_NAME TXT NOT NULL)''')
+#print("create table successfully")
+
+#Q3
+import sqlite3
+conn=sqlite3.connect('publication.db')
+print('before updating')
+cursor=conn.execute("SELECT book_id,title_id,location,genre from novels")
+for row in cursor:
+    print("BOOK_ID=",row[0])
+    print("TITLE_ID=",row[1])
+    print("LOCATION=",row[2])
+    print("GENRE=",row[3],"\n")
+print("records created successfully")
+print("after updation")
+cursor=conn.execute("SELECT BOOK_ID,TITLE_ID,LOCATION,GENRE from NOVELS")
+conn.commit()
+conn.execute("UPDATE NOVELS set TITLE_ID=TITLE_ID+2 where BOOK_ID=13")
+for row in cursor:
+    print("BOOK_ID=",row[0])
+    print("TITLE_ID=",row[1])
+    print("LOCATION=",row[2])
+    print("GENRE=",row[3],"\n")
+print("updated sucessfully")
