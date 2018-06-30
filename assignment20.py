@@ -4,17 +4,24 @@ d={'Name':['Lovi','Vine','Arhu'],'Age':[20,21,18],'Mail.id':['lovi1997@gmail.com
 df=pd.DataFrame(d)
 print(df)
 
-#Q2
-import pandas as pd
+#Q2import pandas as pd
 data=pd.read_csv("dataset.csv")
 df=pd.DataFrame(data)
 print(df)
 print(df.head(5))
 print(df.head(10))
 print(df.shape)
+print(df.axes)
 print(df.T)
 print(df.tail(5))
-print(df['Location'].sum())
-print(df['Location'].describe())
+print("2nd column is MinTemp:")
+print(df['MinTemp'])
+print(df['MinTemp'].shape)
+print(df['MinTemp'].sum())
+print(df['MinTemp'].describe())
+print(df['MinTemp'].axes)
+print(df['MinTemp'].mean())
+
+
 
 
