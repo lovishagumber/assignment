@@ -1,79 +1,43 @@
-#Q1
+import tkinter
 from tkinter import *
-
-fL = {}
-
-from tkinter import *
+from tkinter.filedialog import  askopenfile
 from tkinter import messagebox
-d={'cinderella':46343544,'snowwhite':634543546,'barbie':9786786786,'oswald':9001010001,'noddy':9876100000}
-root=Tk()
-lbl1=Label(root,text="Phone Directory")
-lbl1.pack()
-scrl=Scrollbar(root)
-scrl.pack(side=RIGHT,fill=Y)
-myList=Listbox(root,yscrollcommand=scrl.set)
-i=1
-for line in d:
-    myList.insert(i,line+"-"+str(d[line]))
-    i=i+1
-myList.pack(side=LEFT,fill=BOTH)
-scrl.config(command=myList.yview)
-lblname=Label(root,text="Enter Name")
-lblphn=Label(root,text="Enter phone No.")
-e1=Entry(root)
-e2=Entry(root)
-btn=Button(root,text="Save")
+d={'a':'9234567890',
+   'b':'9987654321',
+   'c':'9876543210'}
+def cmd():
+    x=b1.get()
+    y=b2.get()
+    mylist.insert(END,"name"+str(x))
+    mylist.insert(END,"phone"+str(y))
+    b1.delete(0,END)
+    b2.delete(0,END)
 
-lblname.pack()
-e1.pack()
-lblphn.pack()
-e2.pack()
-btn.pack()
-mainloop()
-
-
-
+#Q1
+master=Tk()
+frame=Frame(master)
+frame.pack()
+master.title("scroll bar")
+master.geometry('300x200')
+s=Scrollbar(master)
+s.pack(side=RIGHT,fil=Y)
+mylist=Listbox(master,yscrollcommand=s.set)
+for i in d:
+    mylist.insert(END,"name"+str(i))
+    mylist.insert(END,"phone"+str(d[i]))
+mylist.pack(side=LEFT,fill=BOTH)
+s.config(command=mylist.yview)
 
 #Q2
-from tkinter import *
-
-fL = {}
-
-from tkinter import *
-from tkinter import messagebox
-d={'cinderella':46343544,'snowwhite':634543546,'barbie':9786786786,'oswald':9001010001,'noddy':9876100000}
-def savephnn():
-    if (e1.index(END)==0 or e2.index(END)==0):
-        messagebox.showwarning("Warning","Please enter all values")
-    else:
-        nam = e1.get()
-        phn = int(e2.get())
-        myList.insert(i, nam + "-" + str(phn))
-
-        e1.delete(0, END)
-        e2.delete(0, END)
-        messagebox.showinfo("Congrats","Contact addded")
-root=Tk()
-lbl1=Label(root,text="Phone Directory")
-lbl1.pack()
-scrl=Scrollbar(root)
-scrl.pack(side=RIGHT,fill=Y)
-myList=Listbox(root,yscrollcommand=scrl.set)
-i=1
-for line in d:
-    myList.insert(i,line+"-"+str(d[line]))
-    i=i+1
-myList.pack(side=LEFT,fill=BOTH)
-scrl.config(command=myList.yview)
-lblname=Label(root,text="Enter Name")
-lblphn=Label(root,text="Enter phone No.")
-e1=Entry(root)
-e2=Entry(root)
-btn=Button(root,text="Save",command=savephnn)
-
-lblname.pack()
-e1.pack()
-lblphn.pack()
-e2.pack()
-btn.pack()
+name=Label(master,text='NAME')
+name.pack()
+b1=Entry(master)
+b1.pack()
+phone=Label(master,text='PHONE NUMBER')
+phone.pack()
+b2=Entry(master)
+b2.pack()
+x=Button(frame,text='INSERT',command=cmd)
+x.pack()
 mainloop()
+
